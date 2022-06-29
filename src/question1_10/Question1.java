@@ -1,5 +1,7 @@
 package question1_10;
 
+import java.util.HashMap;
+
 /**
  * 题目描述：两数之和
  * 给定一个整数数组 nums和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那两个整数，并返回它们的数组下标。
@@ -38,5 +40,23 @@ public class Question1 {
             }
         }
         return null;
+    }
+
+    /**
+     * 哈希表，twoSum1是暴力枚举发，时间复杂度为0（N^2）
+     * 该方法优化了寻找target-x的时间复杂度，从O(N)降为O(1)
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] twoSum2(int[] nums, int target) {
+        HashMap<Integer,Integer> hashTable = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            if(hashTable.containsKey(target-nums[i])){
+                return new int[]{i,hashTable.get(target-nums[i])};
+            }
+            hashTable.put(nums[i],i);
+        }
+        return new int[0];
     }
 }
