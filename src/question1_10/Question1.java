@@ -17,6 +17,7 @@ public class Question1 {
         Question1 question1 = new Question1();
         int[] nums = new int[]{3,3};
         int[] result = question1.twoSum1(nums,6);
+        
         for(int a:result)
             System.out.print(a+" ");
     }
